@@ -1,0 +1,119 @@
+** TABLA **
+<br>
+<br>
+<section>
+    <div class="container mt-5">
+        <div class="row mb-4">
+            <div class="col-xs-12 col-sm-8 col-md-10">
+                <h2>Formulario con NgModel</h2>
+            </div>
+            <div class=" col-xs-12 col-sm-4 col-md-2">
+                <button type="button" class="btn btn-primary float-right ml-3 btn-block" data-toggle="modal" data-target="#modalPersona">+ Agregar</button>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Dni</th>
+                            <th scope="col">Acciones</th>
+                            <th scope="col">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Pedro</td>
+                            <td>Torres</td>
+                            <td>40105487</td>
+                            <td>
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalPersona">Actualizar</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<app-form></app-form>
+
+** MODAL **
+
+<div class="modal" id="modalPersona" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" name="id">
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" name="nombre">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" class="form-control" name="apellido">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dni">Dni:</label>
+                        <input type="number" class="form-control" name="dni">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" #btnClose>Cerrar</button>
+                        <button type="submit " class="btn btn-primary ">Guardar persona</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+** ALERTA **
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="isError">
+                        <p class="alertFont">¡Debes completar todos los campos!</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                         </button>
+                    </div>
+
+** NAVBAR **
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+    <a class="navbar-brand" routerLink="/">{{appName}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="">NGMODEL</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/formReactivo">REACTIVE</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
